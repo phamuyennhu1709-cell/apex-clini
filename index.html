@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apex Clinic | Luxury Aesthetics</title>
+    <meta name="description" content="Premium medical aesthetics tailored for you." />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Prata (Serif), Lato (Sans), Mrs Saint Delafield (Script - Photograph style) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Mrs+Saint+Delafield&family=Prata&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Prata"', 'serif'],
+              sans: ['"Lato"', 'sans-serif'],
+              script: ['"Mrs Saint Delafield"', 'cursive'],
+            },
+            colors: {
+              gold: {
+                400: '#d4af37',
+                500: '#c5a028',
+              },
+              stone: {
+                50: '#dfdfd9',
+                100: '#d4d4ce', 
+                200: '#c8c8c2',
+                300: '#a8a8a2',
+                400: '#787872',
+                500: '#585852',
+                600: '#333333',
+                700: '#222222',
+                800: '#111111',
+                900: '#000000',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #dfdfd9; /* stone-50 */
+        color: #000000; /* stone-900 */
+      }
+      .fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
