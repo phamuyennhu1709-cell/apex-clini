@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Scale, Sparkles, Syringe, ShieldCheck } from 'lucide-react';
 import { Button } from '../components/Layout';
@@ -33,45 +34,56 @@ const About: React.FC = () => {
         
         <div className="relative z-10 text-left max-w-7xl mx-auto px-6 fade-in w-full">
           <h1 className="text-5xl md:text-7xl font-serif text-white leading-tight">
-            Artistry Meets <br className="hidden md:block" /> Clinical Excellence <br />
+            Apex Clinic <br className="hidden md:block" /> 
             <span className={`font-script text-6xl md:text-8xl block -mt-2 ${scriptStyle}`}>Discover the Story of Apex</span>
           </h1>
         </div>
       </section>
 
-      {/* Philosophy Section */}
+      {/* Philosophy Section - Was founded by Liv */}
       <section className="pt-[7.5rem] md:pt-[15rem] pb-[3.75rem] md:pb-[7.5rem] bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-square bg-stone-50 rounded-[10px] overflow-hidden shadow-sm order-1 md:order-1">
-              <img src="https://images.unsplash.com/photo-1579159278991-88f572110c73?q=80&w=1935&auto=format&fit=crop" alt="The Space" className="w-full h-full object-cover" />
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
+          <div className="relative bg-stone-50 rounded-[10px] overflow-hidden shadow-sm order-1 md:order-1 min-h-[400px]">
+              <img 
+                src="https://images.unsplash.com/photo-1579159278991-88f572110c73?q=80&w=1935&auto=format&fit=crop" 
+                alt="The Space" 
+                className="w-full h-full object-cover" 
+              />
           </div>
-          <div className="fade-in order-2 md:order-2">
-            <h2 className={`${mainTitleClass} mb-2`}>
-              The Apex <br />
-              Difference & <span className={scriptTitleClass}>Philosophy</span>
+          <div className="fade-in order-2 md:order-2 flex flex-col justify-center">
+            <h2 className="text-4xl md:text-6xl font-serif text-stone-900 leading-none mb-8 flex items-center flex-wrap gap-x-4">
+              Was founded <span className="font-script text-[#D9A13B] text-6xl md:text-8xl">by Liv</span>
             </h2>
-            <div className={`${bodyTextClass} mb-10 space-y-6`}>
-               <p>Founded on the principle that aesthetic medicine should be a blend of science and art. We focus on subtle enhancements that empower your confidence without compromising your natural character.</p>
-            </div>
-            <div className="flex flex-col items-start space-y-6">
-              {['Natural Aesthetics', 'Patient Safety', 'Artistic Vision'].map((label, index) => (
-                <div key={index} className="border-b border-stone-900 pb-1 text-stone-900 font-serif text-lg tracking-wide">{label}</div>
-              ))}
+            <div className={`${bodyTextClass} space-y-6 text-justify`}>
+               <p>
+                 A Registered General Nurse with a lifelong passion for medical aesthetics, skin health, and confidence-building treatments.
+               </p>
+               <p>
+                 Before entering nursing, Liv operated a makeup artistry business, working closely with clients to enhance natural beauty and understand facial structure, skin, and individual features. After qualifying as a nurse, it became clear that the next step was to combine her artistic eye with medical knowledge, safety, and ethical practice…and that is where Apex Aesthetics Clinic was born.
+               </p>
+               <p>
+                 At Apex, medical integrity sits at the core of everything we do. Liv’s nursing background ensures that every treatment is approached with precision, safety, and a deep understanding of facial anatomy. This clinical foundation, paired with an aesthetic-led approach, allows for results that are refined, balanced, and natural.
+               </p>
+               <p>
+                 Liv is now pursuing her dream career in aesthetics full time, having treated hundreds of clients with consistently safe and tailored outcomes. In 2026, Apex Aesthetics Clinic will also begin welcoming students and professionals into education and training, sharing high standards of practice and evidence-based techniques within the industry.
+               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Meet Olivia Section */}
+      {/* Meet Olivia Section -> Updated to "Our Philosophy & Mission" as requested */}
       <section className="py-[3.75rem] md:py-[7.5rem] bg-white">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="order-1 md:order-1 fade-in">
-            <p className="text-xs tracking-[0.2em] uppercase text-stone-400 mb-4">Our Founder</p>
-            <h2 className={`${mainTitleClass} mb-4`}>
-              Meet <span className={scriptTitleClass}>Olivia</span>
+            <p className="text-xs tracking-[0.2em] uppercase text-stone-400 mb-4">Our Vision</p>
+            <h2 className="text-4xl md:text-6xl font-serif text-stone-900 leading-tight mb-8">
+              Our Philosophy & <span className="font-script text-[#D9A13B] text-6xl md:text-8xl ml-2">Mission</span>
             </h2>
-            <div className={`${bodyTextClass} space-y-6`}>
-              <p>With over a decade of clinical experience, Olivia has trained extensively and worked tirelessly to perfect her craft. Her background in nursing provides the medical foundation required for the safest possible outcomes.</p>
+            <div className={`${bodyTextClass} space-y-6 text-justify`}>
+              <p>Our mission at Apex Aesthetics Clinic is to remove the stigma surrounding cosmetic injectables and demonstrate that aesthetic enhancements can be subtle, responsible, and empowering.</p>
+              <p>We believe cosmetic treatments should never change who you are - they should simply enhance what is already there. Every face is unique, and treatments are carefully tailored to suit individual features, proportions, and goals, ensuring clients still look like themselves; just more refreshed, balanced, and confident.</p>
+              <p className="font-medium text-stone-800">Apex stands for ethical aesthetics, natural results, and long-term skin health.</p>
             </div>
             <div className="mt-10">
                <Button variant="primary" to="/training">View Academy</Button>

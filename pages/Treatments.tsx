@@ -131,11 +131,6 @@ interface TreatmentPageProps {
   expectSectionReversed?: boolean;
 }
 
-/**
- * Fixed GoldIcon: Moved outside of TreatmentLayout and made children optional
- * to resolve TypeScript compilation errors where standard SVG tags like <stop> 
- * were being incorrectly flagged as missing required children in some environments.
- */
 const GoldIcon = ({ children }: { children?: React.ReactNode }) => (
   <div className="mb-6 inline-block">
     <svg width="0" height="0">
@@ -238,7 +233,7 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
                   {introTitle} {introScript && <span className={`${scriptTitleClass} ml-2`}>{introScript}</span>}
                 </h2>
                 <div className="space-y-6">
-                  {introText.split('\n\n').map((para, i) => (
+                  {introText && introText.split('\n\n').map((para, i) => (
                     <p key={i} className={bodyTextClass}>{para}</p>
                   ))}
                 </div>
@@ -253,11 +248,13 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
               <h2 className={`${mainTitleClass} mb-12 md:mb-16`}>
                 {introTitle} {introScript && <span className={scriptTitleClass}>{introScript}</span>}
               </h2>
-              <div className="max-w-2xl mx-auto mb-16">
-                <p className={`${bodyTextClass}`}>
-                  {introText}
-                </p>
-              </div>
+              {introText && (
+                <div className="max-w-2xl mx-auto mb-16">
+                  <p className={`${bodyTextClass}`}>
+                    {introText}
+                  </p>
+                </div>
+              )}
             </div>
           )}
 
@@ -469,7 +466,7 @@ At Apex Aesthetics Clinic, every treatment is bespoke, designed to enhance your 
         What <span className="font-script text-[#D9A13B] text-6xl md:text-8xl inline-block leading-none mx-2">Dermal Fillers</span> <br /> can do for you?
       </>
     )}
-    introText="As we age, the face naturally loses volume and structural support, causing features to soften and definition to fade. Dermal fillers help restore this lost volume and enhance facial structure, bringing balance, lift, and subtle definition back to the face."
+    introText=""
     comparisonBefore="https://images.unsplash.com/photo-1551184451-76b762941ad6?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     comparisonAfter="https://images.unsplash.com/photo-1580327748589-bdaf4fc6543e?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     comparisonBeforeText={{
@@ -528,9 +525,9 @@ At Apex Aesthetics Clinic, every treatment is bespoke, designed to enhance your 
         image: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=2070&auto=format&fit=crop"
       },
       {
-        title: "Lip Re-shape",
-        body: "Sometimes previous filler results haven't aged as expected or may no longer match your facial structure. Lip re-shaping involves a thorough consultation and potential multi-stage approach to refine, define, and potentially dissolve and refill to achieve a perfectly balanced aesthetic.",
-        image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop"
+        title: "Liquid Rhinoplasty",
+        body: "The nose plays a big role in how balanced our face looks, and for many people it’s an area they feel self-conscious about. Liquid rhinoplasty is a non-surgical treatment that uses dermal filler to subtly improve the shape of the nose, without surgery, scarring, or lengthy downtime.\nThis treatment is commonly used to soften a bump on the bridge, improve asymmetry, smooth small dips or indentations, and gently lift a drooping nasal tip. Rather than changing the nose completely, the aim is to create a smoother, more even profile that sits better with the rest of the face.\nResults are temporary but long-lasting. With careful placement, filler works by creating balance and proportion - often making imperfections far less noticeable and leaving the nose looking straighter and more refined.",
+        image: "https://images.unsplash.com/photo-1579159278991-88f572110c73?q=80&w=1935&auto=format&fit=crop"
       },
       {
         title: "Facial Balancing Packages",

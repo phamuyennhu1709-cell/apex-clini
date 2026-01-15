@@ -37,12 +37,10 @@ export const Navbar: React.FC = () => {
     { name: 'Fat Dissolving', path: '/treatment/fat-dissolving' },
   ];
 
-  const leftLinks = [
+  const allNavLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-  ];
-
-  const rightLinks = [
+    { name: 'Training', path: '/training' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -54,11 +52,22 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center relative">
+        <div className="flex justify-between items-center">
           
-          {/* Desktop Left Nav */}
-          <div className="hidden lg:flex space-x-12 items-center flex-1">
-            {leftLinks.map((link) => (
+          {/* Logo on Left */}
+          <Link to="/" className="z-50 flex flex-col items-start group">
+            <h1 className="text-2xl md:text-3xl font-serif tracking-[0.1em] text-stone-900 leading-none">
+              APEX
+            </h1>
+            <span className="text-[8px] md:text-[10px] font-serif uppercase tracking-[0.8em] text-stone-900 leading-none mt-1">
+              CLINIC
+            </span>
+          </Link>
+
+          {/* Desktop Central Nav Links */}
+          <div className="hidden lg:flex space-x-8 xl:space-x-12 items-center absolute left-1/2 -translate-x-1/2">
+            {/* Home, About */}
+            {allNavLinks.slice(0, 2).map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
@@ -73,7 +82,7 @@ export const Navbar: React.FC = () => {
               </Link>
             ))}
 
-            {/* Treatment Dropdown */}
+            {/* Treatment Dropdown in middle */}
             <div 
               className="relative group"
               onMouseEnter={() => setIsDropdownOpen(true)}
@@ -88,7 +97,6 @@ export const Navbar: React.FC = () => {
                 <ChevronDown size={12} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
-              {/* Dropdown Menu */}
               <div className={`absolute left-0 top-full pt-4 transition-all duration-300 ${isDropdownOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-2 pointer-events-none'}`}>
                 <div className="bg-white shadow-xl py-4 min-w-[200px] border border-stone-100">
                   {treatmentLinks.map((subLink) => (
@@ -104,33 +112,8 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
-            {/* Training Link - Moved to Left */}
-            <Link
-              to="/training"
-              className={`relative group text-[11px] tracking-[0.25em] uppercase transition-colors duration-300 ${
-                location.pathname === '/training' ? 'text-stone-900 font-bold' : 'text-stone-900/70 hover:text-stone-900'
-              }`}
-            >
-              Training
-              <span className={`absolute -bottom-1 left-0 h-[1.5px] bg-stone-900 transition-all duration-300 ease-out ${
-                location.pathname === '/training' ? 'w-full' : 'w-0 group-hover:w-full'
-              }`}></span>
-            </Link>
-          </div>
-
-          {/* Centered Logo */}
-          <Link to="/" className="z-50 flex flex-col items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2 group">
-            <h1 className="text-2xl md:text-3xl font-serif tracking-[0.1em] text-stone-900 leading-none">
-              APEX
-            </h1>
-            <span className="text-[8px] md:text-[10px] font-serif uppercase tracking-[0.8em] text-stone-900 leading-none mt-1 ml-1">
-              CLINIC
-            </span>
-          </Link>
-
-          {/* Desktop Right Nav */}
-          <div className="hidden lg:flex space-x-12 items-center flex-1 justify-end">
-            {rightLinks.map((link) => (
+            {/* Other links: Training, Pricing, Contact */}
+            {allNavLinks.slice(2).map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
@@ -144,9 +127,13 @@ export const Navbar: React.FC = () => {
                 }`}></span>
               </Link>
             ))}
+          </div>
+
+          {/* Desktop Right Button */}
+          <div className="hidden lg:block">
             <button 
               onClick={scrollToFooter}
-              className="bg-stone-900 text-white px-7 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-stone-800 transition-all duration-300 ml-6"
+              className="bg-stone-900 text-white px-7 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-stone-800 transition-all duration-300"
             >
               Book Now
             </button>
@@ -168,7 +155,7 @@ export const Navbar: React.FC = () => {
           }`}
         >
           <div className="flex flex-col space-y-6 text-center items-center py-20">
-            {leftLinks.map((link) => (
+            {allNavLinks.slice(0, 2).map((link) => (
               <Link key={link.name} to={link.path} className="text-xl font-serif text-stone-800 uppercase tracking-widest">{link.name}</Link>
             ))}
             
@@ -179,11 +166,10 @@ export const Navbar: React.FC = () => {
               ))}
             </div>
 
-            <Link to="/training" className="text-xl font-serif text-stone-800 uppercase tracking-widest">Training</Link>
-
-            {rightLinks.map((link) => (
+            {allNavLinks.slice(2).map((link) => (
               <Link key={link.name} to={link.path} className="text-xl font-serif text-stone-800 uppercase tracking-widest">{link.name}</Link>
             ))}
+            
             <button 
               onClick={scrollToFooter}
               className="mt-4 bg-stone-900 text-white px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-stone-800 transition-all duration-300"
@@ -214,23 +200,29 @@ export const Footer: React.FC = () => {
              <h2 className="text-5xl md:text-7xl font-serif text-stone-900 leading-none">
               Contact <span className="font-script text-[#D9A13B] text-6xl md:text-8xl ml-2">Us</span>
              </h2>
-             <p className="text-stone-600 font-light leading-relaxed max-w-md text-sm md:text-base">
-               Have questions about a treatment or ready to book your consultation? Fill out the form below or reach out to us directly.
-             </p>
+             <div className="text-stone-600 font-light leading-relaxed max-w-md text-lg space-y-4">
+               <p className="font-bold">Better yet, come visit!</p>
+               <p>
+                We would love to help you meet your confidence goals through our aesthetic treatments. Please feel free to book your free in-clinic consultation to explore which services would be suitable for you.
+               </p>
+             </div>
            </div>
 
            <div className="space-y-8">
               <div>
                  <h3 className="text-sm font-bold uppercase tracking-widest text-stone-900 mb-2">Address</h3>
-                 <p className="text-stone-600 font-light">123 Luxury Lane, Mayfair<br/>London, UK W1J 6BQ</p>
+                 <p className="text-stone-600 font-light text-lg">
+                  Apex Clinic - based at AG PERMANENT COSMETICS ACADEMY<br/>
+                  6 Carolgate, Retford DN22 6BU
+                 </p>
               </div>
               <div>
                  <h3 className="text-sm font-bold uppercase tracking-widest text-stone-900 mb-2">Email</h3>
-                 <p className="text-stone-600 font-light">info@apexclinic.com</p>
+                 <p className="text-stone-600 font-light text-lg">apexaestheticsbyliv@gmail.com</p>
               </div>
               <div>
                  <h3 className="text-sm font-bold uppercase tracking-widest text-stone-900 mb-2">Phone</h3>
-                 <p className="text-stone-600 font-light">020 7123 4567</p>
+                 <p className="text-stone-600 font-light text-lg">07710537924</p>
               </div>
            </div>
         </div>
@@ -271,10 +263,8 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Decorative Scrolling Text Section */}
       <div className="border-t border-white/60 bg-[#eeeae7] py-12 md:py-20 overflow-hidden relative">
         <div className="flex whitespace-nowrap animate-marquee-right will-change-transform">
-          {/* Two identical sets of content for seamless looping */}
           <div className="flex whitespace-nowrap">
             {[...Array(6)].map((_, i) => <MarqueeItem key={`set1-${i}`} />)}
           </div>
