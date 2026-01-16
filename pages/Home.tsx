@@ -7,6 +7,15 @@ import { Link } from 'react-router-dom';
 const Home: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -97,9 +106,11 @@ const Home: React.FC = () => {
       <section className="relative h-screen min-h-[600px] flex items-center bg-stone-50 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
+            referrerPolicy='no-referrer'
             src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/616292719_1800651447315564_856920198089736045_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=G6ewOoCzikgQ7kNvwG0vFJ8&_nc_oc=AdmFivkqd18GD_oJE_HT8zzISzk11wjVOni_yyU4jwerYgZmSTwhn8mju61WP3OR9BhUSskYZ7hErrh-2rVqRF8Q&_nc_zt=23&_nc_ht=scontent.fsgn5-9.fna&_nc_gid=feNqTUEyf2I1HM1nuH65Iw&oh=00_Afr26U9mdufxKRJ340urbzs8svjp9_eDY3uGOmqOezSZkA&oe=696DCE71" 
             alt="Luxury Aesthetics Background"
             className="w-full h-full object-cover opacity-100 brightness-[1]"
+            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           />
     
         </div>
@@ -138,7 +149,7 @@ Every treatment is tailored to your individual features and goals, with a strong
             </div>
           </div>
           <div className="relative aspect-square bg-stone-50 rounded-[10px] overflow-hidden shadow-sm">
-              <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop" alt="Skincare Consultation" className="w-full h-full object-cover" />
+              <img referrerPolicy='no-referrer' src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop" alt="Skincare Consultation" className="w-full h-[110%] object-cover absolute top-0 left-0" style={{ transform: `translateY(${(scrollY - 800) * 0.15}px)` }} />
           </div>
         </div>
       </section>
@@ -148,7 +159,7 @@ Every treatment is tailored to your individual features and goals, with a strong
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
           <div className="order-2 md:order-1 relative">
             <div className="h-full bg-stone-200 relative overflow-hidden rounded-[10px]">
-               <img src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t51.82787-15/553742065_18428179612100116_1721518372852238092_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHPyKkuriUljae4jVxe9KIPh5Md1K0Mf8SHkx3UrQx_xMOq6tnBgVvN1Jxx3O9FTzSwSE_SZCOOU9DVEiT0Jy_p&_nc_ohc=a3D-ElNau1YQ7kNvwEBXrG5&_nc_oc=Adkmy3cFG8QwxvepInSSxZEO7oG_j-HOa8jbVI69RQH517LREBdRkHVndvBcfY23WkpytWujYjdh8NwF5q7L8Ks3&_nc_zt=23&_nc_ht=scontent.fsgn2-9.fna&_nc_gid=Wrga319Fp2zOAIwq7DQqpg&oh=00_Afo0AfplS0rQXxSLYYZrp6GlhdqsjAE9xB8gDvCqepaETg&oe=69642CB8" alt="Olivia Founder" className="w-full h-full object-cover" />
+               <img referrerPolicy='no-referrer' src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t51.82787-15/553742065_18428179612100116_1721518372852238092_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHPyKkuriUljae4jVxe9KIPh5Md1K0Mf8SHkx3UrQx_xMOq6tnBgVvN1Jxx3O9FTzSwSE_SZCOOU9DVEiT0Jy_p&_nc_ohc=a3D-ElNau1YQ7kNvwEBXrG5&_nc_oc=Adkmy3cFG8QwxvepInSSxZEO7oG_j-HOa8jbVI69RQH517LREBdRkHVndvBcfY23WkpytWujYjdh8NwF5q7L8Ks3&_nc_zt=23&_nc_ht=scontent.fsgn2-9.fna&_nc_gid=Wrga319Fp2zOAIwq7DQqpg&oh=00_Afo0AfplS0rQXxSLYYZrp6GlhdqsjAE9xB8gDvCqepaETg&oe=69642CB8" alt="Olivia Founder" className="w-full h-[110%] object-cover absolute top-0 left-0" style={{ transform: `translateY(${(scrollY - 1200) * 0.15}px)` }} />
             </div>
           </div>
           <div className="order-1 md:order-2 flex flex-col justify-center py-4">
@@ -199,7 +210,7 @@ Every treatment is tailored to your individual features and goals, with a strong
                {services.map((service, idx) => (
                   <div key={idx} className="min-w-[85vw] md:min-w-[350px] snap-center flex flex-col h-full">
                      <div className="overflow-hidden rounded-[10px] mb-8 relative aspect-[3/4] shadow-sm">
-                        <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                        <img referrerPolicy='no-referrer' src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
                      </div>
                      <div className="flex justify-between items-baseline mb-4">
                         <h3 className="text-sm font-bold uppercase tracking-widest text-stone-900">{service.title}</h3>

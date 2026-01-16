@@ -1,8 +1,18 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '../components/Layout';
 
 const Training: React.FC = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const courses = [
     {
       title: "Beginner Courses",
@@ -59,9 +69,11 @@ const Training: React.FC = () => {
       <section className="relative min-h-screen flex flex-col items-center bg-stone-50 overflow-hidden pt-[25vh] pb-32">
         <div className="absolute inset-0 z-0">
           <img 
+            referrerPolicy='no-referrer'
             src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/616292719_1800651447315564_856920198089736045_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=G6ewOoCzikgQ7kNvwG0vFJ8&_nc_oc=AdmFivkqd18GD_oJE_HT8zzISzk11wjVOni_yyU4jwerYgZmSTwhn8mju61WP3OR9BhUSskYZ7hErrh-2rVqRF8Q&_nc_zt=23&_nc_ht=scontent.fsgn5-9.fna&_nc_gid=feNqTUEyf2I1HM1nuH65Iw&oh=00_Afr26U9mdufxKRJ340urbzs8svjp9_eDY3uGOmqOezSZkA&oe=696DCE71" 
             alt="Training Academy Background"
             className="w-full h-full object-cover opacity-100 brightness-[1]"
+            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           />
         </div>
         
@@ -77,6 +89,7 @@ const Training: React.FC = () => {
           {/* 960x540 Frame */}
           <div className="max-w-[960px] w-full aspect-video rounded-[10px] overflow-hidden shadow-2xl z-20 border-4 border-white/20">
             <img 
+              referrerPolicy='no-referrer'
               src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" 
               alt="Training Workshop" 
               className="w-full h-full object-cover"
@@ -105,7 +118,7 @@ const Training: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
           <div className="order-2 md:order-1 relative">
             <div className="bg-stone-200 relative overflow-hidden rounded-[10px] h-full">
-               <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop" alt="Clinical Education" className="w-full h-full object-cover" />
+               <img referrerPolicy='no-referrer' src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop" alt="Clinical Education" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="order-1 md:order-2 flex flex-col justify-center">
@@ -208,7 +221,7 @@ const Training: React.FC = () => {
           </div>
           <div className="relative min-h-[450px]">
             <div className="absolute inset-0 bg-stone-200 overflow-hidden rounded-[10px] shadow-2xl">
-               <img src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t51.82787-15/553742065_18428179612100116_1721518372852238092_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHPyKkuriUljae4jVxe9KIPh5Md1K0Mf8SHkx3UrQx_xMOq6tnBgVvN1Jxx3O9FTzSwSE_SZCOOU9DVEiT0Jy_p&_nc_ohc=a3D-ElNau1YQ7kNvwEBXrG5&_nc_oc=Adkmy3cFG8QwxvepInSSxZEO7oG_j-HOa8jbVI69RQH517LREBdRkHVndvBcfY23WkpytWujYjdh8NwF5q7L8Ks3&_nc_zt=23&_nc_ht=scontent.fsgn2-9.fna&_nc_gid=Wrga319Fp2zOAIwq7DQqpg&oh=00_Afo0AfplS0rQXxSLYYZrp6GlhdqsjAE9xB8gDvCqepaETg&oe=69642CB8" alt="Olivia Mentor" className="w-full h-full object-cover" />
+               <img referrerPolicy='no-referrer' src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t51.82787-15/553742065_18428179612100116_1721518372852238092_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHPyKkuriUljae4jVxe9KIPh5Md1K0Mf8SHkx3UrQx_xMOq6tnBgVvN1Jxx3O9FTzSwSE_SZCOOU9DVEiT0Jy_p&_nc_ohc=a3D-ElNau1YQ7kNvwEBXrG5&_nc_oc=Adkmy3cFG8QwxvepInSSxZEO7oG_j-HOa8jbVI69RQH517LREBdRkHVndvBcfY23WkpytWujYjdh8NwF5q7L8Ks3&_nc_zt=23&_nc_ht=scontent.fsgn2-9.fna&_nc_gid=Wrga319Fp2zOAIwq7DQqpg&oh=00_Afo0AfplS0rQXxSLYYZrp6GlhdqsjAE9xB8gDvCqepaETg&oe=69642CB8" alt="Olivia Mentor" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -218,6 +231,7 @@ const Training: React.FC = () => {
       <section className="relative py-[10rem] md:py-[15rem] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
+            referrerPolicy='no-referrer'
             src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop" 
             alt="Academy Inquiry Background"
             className="w-full h-full object-cover"

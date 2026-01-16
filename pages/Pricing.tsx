@@ -49,6 +49,19 @@ const Pricing: React.FC = () => {
     containerWidth > 0
       ? Math.min(containerWidth, PDF_MAX_WIDTH)
       : undefined;
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scriptStyle = "text-[#D9A13B] leading-none";
+  const mainTitleClass = "text-5xl md:text-7xl font-serif text-stone-900 leading-tight mb-8";
+  const bodyTextClass = "text-stone-600 font-light text-lg leading-relaxed mb-8";
 
   return (
     <div className="pt-32 md:pt-48 pb-20 bg-white min-h-screen">

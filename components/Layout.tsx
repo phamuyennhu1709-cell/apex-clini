@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Facebook, ChevronDown } from 'lucide-react';
+import Marquee from 'react-fast-marquee';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -184,9 +185,9 @@ export const Navbar: React.FC = () => {
 };
 
 export const Footer: React.FC = () => {
-  const MarqueeItem = () => (
+  const MarqueeItem = ({thing}: {thing: string}) => (
     <div className="flex items-center text-stone-900/15 text-[6rem] md:text-[12rem] font-serif leading-none tracking-tighter uppercase select-none">
-      <span className="px-10 md:px-16">APEX CLINIC</span>
+      <span className="px-10 md:px-16">APEX CLINIC {thing}</span>
       <div className="w-3 h-3 md:w-6 md:h-6 rounded-full bg-stone-900/10 flex-shrink-0"></div>
     </div>
   );
@@ -263,15 +264,12 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-t border-white/60 bg-[#eeeae7] py-12 md:py-20 overflow-hidden relative">
-        <div className="flex whitespace-nowrap animate-marquee-right will-change-transform">
-          <div className="flex whitespace-nowrap">
-            {[...Array(6)].map((_, i) => <MarqueeItem key={`set1-${i}`} />)}
-          </div>
-          <div className="flex whitespace-nowrap">
-            {[...Array(6)].map((_, i) => <MarqueeItem key={`set2-${i}`} />)}
-          </div>
-        </div>
+      <div className="border-t border-white/60 bg-[#eeeae7] py-12 md:py-20 overflow-hidden relative w-full">
+        <Marquee speed={50} gradient={false}>
+          {[...Array(8)].map((_, i) => (
+            <MarqueeItem key={i} thing="" />
+          ))}
+        </Marquee>
       </div>
     </footer>
   );
