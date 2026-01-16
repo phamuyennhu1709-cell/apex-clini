@@ -13,9 +13,7 @@ const Training: React.FC = () => {
         "Patient safety and ethical practice",
         "Practical, hands-on learning in a supportive environment"
       ],
-      footer: "Beginner training is ideal for practitioners looking to enter aesthetics with confidence and the correct clinical mindset.",
-      price: "From £2000",
-      duration: "1 Day"
+      footer: "Beginner training is ideal for practitioners looking to enter aesthetics with confidence and the correct clinical mindset."
     },
     {
       title: "Refresher Courses",
@@ -26,9 +24,7 @@ const Training: React.FC = () => {
         "Addressing gaps in knowledge",
         "Supporting practitioners returning after time away"
       ],
-      footer: "These sessions are tailored to your experience level and individual needs.",
-      price: "From £1800",
-      duration: "1 Day"
+      footer: "These sessions are tailored to your experience level and individual needs."
     },
     {
       title: "Advanced Courses",
@@ -39,9 +35,7 @@ const Training: React.FC = () => {
         "Enhancing natural, balanced outcomes",
         "Precision techniques and complication awareness"
       ],
-      footer: "These courses are suitable for practitioners looking to refine their aesthetic eye and deliver higher-level results.",
-      price: "From £1200",
-      duration: "1 Day"
+      footer: "These courses are suitable for practitioners looking to refine their aesthetic eye and deliver higher-level results."
     },
     {
       title: "Shadow Days",
@@ -52,9 +46,7 @@ const Training: React.FC = () => {
         "Patient communication and aftercare",
         "A deeper understanding of clinical decision-making"
       ],
-      footer:"Shadow days are ideal for those wanting exposure, confidence, and practical insight beyond structured courses.",
-      price: "From £1600",
-      duration: "1 Day"
+      footer:"Shadow days are ideal for those wanting exposure, confidence, and practical insight beyond structured courses."
     }
   ];
 
@@ -178,13 +170,7 @@ const Training: React.FC = () => {
                     )}
                   </div>
                   <div className="lg:col-span-3 flex flex-col lg:items-end justify-start h-full">
-                    <div className="text-right">
-                      <p className="text-2xl font-serif text-stone-900 mb-2">{course.price}</p>
-                      <p className="text-sm tracking-widest text-stone-500 uppercase font-bold">Duration: {course.duration}</p>
-                    </div>
-                    <div className="mt-8 lg:mt-auto">
-                      <Button variant="outline" to="/contact" className="w-full lg:w-auto py-3 text-[10px] tracking-[0.2em] px-8">Enquire Now</Button>
-                    </div>
+                    <Button variant="outline" to="/contact" className="w-full lg:w-auto py-3 text-[10px] tracking-[0.2em] px-8">Enquire Now</Button>
                   </div>
                 </div>
               </div>
