@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Prata", serif;
+  --font-sans: "Lato", sans-serif;
+  --font-script: "Mrs Saint Delafield", cursive;
+
+  --color-gold-400: #d4af37;
+  --color-gold-500: #c5a028;
+
+  --color-stone-50: #dfdfd9;
+  --color-stone-100: #d4d4ce;
+  --color-stone-200: #c8c8c2;
+  --color-stone-300: #a8a8a2;
+  --color-stone-400: #787872;
+  --color-stone-500: #585852;
+  --color-stone-600: #333333;
+  --color-stone-700: #222222;
+  --color-stone-800: #111111;
+  --color-stone-900: #000000;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-right: marquee-right 12s linear infinite;
+  --animate-scroll: scroll 30s linear infinite;
+}
+
+/* Keyframes still live in CSS */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
