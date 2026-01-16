@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '../components/Layout';
 import { Document, Page, pdfjs } from 'react-pdf';
 
-// Correct worker import for Vite + react-pdf
-import pdfWorkerUrl from 'react-pdf/node_modules/pdfjs-dist/build/pdf.worker.min.mjs?url';
+
+import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
+
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorkerUrl as unknown as string;
 
 // Desktop readable PDF width (DO NOT use container width directly)
