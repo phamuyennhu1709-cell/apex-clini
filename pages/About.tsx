@@ -218,7 +218,7 @@ const About: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             referrerPolicy="no-referrer"
-            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop"
+            src="/about/about.webp"
             alt="Clinic Interior"
             className="w-full h-full object-cover"
           />

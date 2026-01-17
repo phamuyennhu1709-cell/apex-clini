@@ -189,8 +189,13 @@ const Home: React.FC = () => {
 Every treatment is tailored to your individual features and goals, with a strong focus on safety, natural-looking results and expert aftercare.</p>
             </div>
             <div className="flex flex-col items-start space-y-6">
-              {['Dermal Fillers', 'Anti-Wrinkle', 'Skincare', 'Fat dissolving'].map((label, index) => (
-                <Link key={index} to="/pricing" className="border-b border-stone-900 pb-1 text-stone-900 hover:text-stone-600 hover:border-stone-500 font-serif text-lg tracking-wide transition-all">{label}</Link>
+              {[
+                { label: 'Dermal Fillers', to: '/treatment/dermal-fillers' },
+                { label: 'Anti-Wrinkle', to: '/treatment/anti-wrinkles' },
+                { label: 'Skincare', to: '/treatment/skincare' },
+                { label: 'Fat dissolving', to: '/treatment/fat-dissolving' }
+              ].map((item, index) => (
+                <Link key={index} to={item.to} className="border-b border-stone-900 pb-1 text-stone-900 hover:text-stone-600 hover:border-stone-500 font-serif text-lg tracking-wide transition-all">{item.label}</Link>
               ))}
             </div>
           </div>

@@ -118,7 +118,7 @@ const Pricing: React.FC = () => {
           <div className="order-1 md:order-2">
             <div className="aspect-square rounded-[10px] overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
+                src="/pricing/Pricing.webp"
                 alt="Clinic Pricing"
                 className="w-full h-full object-cover"
               />
