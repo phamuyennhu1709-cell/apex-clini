@@ -337,6 +337,7 @@ export const Footer: React.FC = () => {
               </div>
               <button
                 type="button"
+                onClick={() => window.open('https://that-time.co.uk/apex-aesthetics-by-liv', '_blank')}
                 className="w-full bg-stone-900 text-white py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-stone-800 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 rounded-none shadow-sm hover:shadow-md"
               >
                 Send Message

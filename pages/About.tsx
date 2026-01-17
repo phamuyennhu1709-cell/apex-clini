@@ -65,7 +65,7 @@ const About: React.FC = () => {
           {heroSize ? (
             <img
               referrerPolicy="no-referrer"
-              src="/about/about.webp"
+              src="/about/hero.webp"
               alt="About Apex Clinic"
               style={{
                 width: `${heroSize.w}px`,
