@@ -38,7 +38,7 @@ const About: React.FC = () => {
             referrerPolicy='no-referrer'
             src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" 
             alt="About Apex Clinic"
-            className="w-full h-full object-cover opacity-90 brightness-[0.75]"
+            className="w-full h-full object-cover"
             style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           />
           <div className="absolute inset-0 bg-stone-900/20"></div>

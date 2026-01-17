@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav 
-      className={`fixed w-full z-50 transition-all duration-500 bg-[#fdfcfb] ${
+      className={`fixed w-full z-50 transition-all duration-500 bg-[#f1ebe5] ${
         scrolled ? 'py-4 shadow-sm' : 'py-8'
       }`}
     >
