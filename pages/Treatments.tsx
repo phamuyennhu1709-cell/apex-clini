@@ -463,7 +463,7 @@ The focus is always on subtle, well-balanced results - so you leave feeling refr
             {/* Right/Left depending on expectSectionReversed */}
             <div className={`rounded-[10px] overflow-hidden shadow-2xl relative order-2 ${expectSectionReversed ? 'lg:order-1' : 'lg:order-2'} min-h-[400px]`}>
               <img 
-                src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop" 
+                src="/public/dermal-fillers/whattoexpect.webp" 
                 alt="Clinic Consultation" 
                 className="w-full h-full object-cover absolute inset-0"
               />
@@ -486,7 +486,7 @@ export const DermalFillers: React.FC = () => (
     <TreatmentLayout 
       title="Dermal"
       script="Fillers"
-      heroImage="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop"
+      heroImage="/public/dermal-fillers/hero.webp"
       heroDescription={`Dermal Fillers are advanced injectable treatments used to restore lost volume and enhance facial contours. Using hyaluronic acid–based fillers, treatments are tailored to soften signs of ageing while maintaining natural expression.
 
 At Apex Aesthetics Clinic, every treatment is bespoke, designed to enhance your unique features while keeping you looking refreshed and balanced.`}
@@ -496,8 +496,8 @@ At Apex Aesthetics Clinic, every treatment is bespoke, designed to enhance your 
         </>
       )}
       introText=""
-      comparisonBefore="https://images.unsplash.com/photo-1551184451-76b762941ad6?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      comparisonAfter="https://images.unsplash.com/photo-1580327748589-bdaf4fc6543e?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      comparisonBefore="/public/dermal-fillers/before.webp"
+      comparisonAfter="/public/dermal-fillers/after.webp"
       comparisonBeforeText={{
         title: "Before",
         body: "As we age, the face naturally loses volume and structural support, causing features to soften and definition to fade."
@@ -551,17 +551,17 @@ At Apex Aesthetics Clinic, every treatment is bespoke, designed to enhance your 
         {
           title: "Lip Enhancement",
           body: "Lip filler can subtly enhance the shape, balance, and hydration of the lips when done well. My approach is conservative and tailored, focusing on results that sit naturally with your features.\n\nWhether you’re looking to restore volume, improve symmetry, or add gentle definition, each treatment is planned around your face and your preferences. The aim is simple: lips that look soft, balanced, and still very much your own.",
-          image: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=2070&auto=format&fit=crop"
+          image: "/public/dermal-fillers/lip.webp"
         },
         {
           title: "Liquid Rhinoplasty",
           body: "The nose plays a big role in how balanced our face looks, and for many people it’s an area they feel self-conscious about. Liquid rhinoplasty is a non-surgical treatment that uses dermal filler to subtly improve the shape of the nose, without surgery, scarring, or lengthy downtime.\nThis treatment is commonly used to soften a bump on the bridge, improve asymmetry, smooth small dips or indentations, and gently lift a drooping nasal tip. Rather than changing the nose completely, the aim is to create a smoother, more even profile that sits better with the rest of the face.\nResults are temporary but long-lasting. With careful placement, filler works by creating balance and proportion - often making imperfections far less noticeable and leaving the nose looking straighter and more refined.",
-          image: "https://images.unsplash.com/photo-1579159278991-88f572110c73?q=80&w=1935&auto=format&fit=crop"
+          image: "/public/dermal-fillers/liquid.webp"
         },
         {
           title: "Facial Balancing Packages",
           body: "Our facial balancing packages are our signature dermal filler treatments and are perfect for anyone looking for an overall enhancement rather than tweaking individual areas.\nInstead of treating one feature at a time, facial balancing looks at the face as a whole - focusing on structure, proportions, and harmony. By treating multiple areas together, we’re able to create results that feel natural, balanced, and still very you.\nThese packages also offer better value compared to booking individual treatments and are ideal if you’re wanting a refreshed, more defined look without anything looking overdone.\nFacial balancing is one of our most popular and in-demand treatments, chosen by clients who want subtle but noticeable results that enhance their natural features.\nEvery treatment starts with a detailed consultation, allowing us to create a personalised plan based on your face, your goals, and what will work best for you.",
-          image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop"
+          image: "/public/dermal-fillers/facial.webp"
         }
       ]}
     />
@@ -779,18 +779,15 @@ export const FatDissolving: React.FC = () => (
     accordionItems={[
       {
         title: "Submental (Double Chin)",
-        body: "Our most popular fat dissolving treatment. By dissolving the small pocket of fat under the chin, we create a much more defined and youthful angle between the neck and the face.",
-        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop"
+        body: "Our most popular fat dissolving treatment. By dissolving the small pocket of fat under the chin, we create a much more defined and youthful angle between the neck and the face."
       },
       {
         title: "Lower Abdomen",
-        body: "Ideal for the small 'pooch' that often remains regardless of fitness levels. This treatment helps smooth the transition across the stomach for a flatter appearance in clothing.",
-        image: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=2070&auto=format&fit=crop"
+        body: "Ideal for the small 'pooch' that often remains regardless of fitness levels. This treatment helps smooth the transition across the stomach for a flatter appearance in clothing."
       },
       {
         title: "Inner Thigh & Arms",
-        body: "Address areas of skin rubbing or 'bingo wings' with targeted injections. These treatments help to firm up the silhouette by reducing the volume of fat in these challenging zones.",
-        image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop"
+        body: "Address areas of skin rubbing or 'bingo wings' with targeted injections. These treatments help to firm up the silhouette by reducing the volume of fat in these challenging zones."
       }
     ]}
     />

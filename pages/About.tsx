@@ -80,10 +80,9 @@ const About: React.FC = () => {
           <div className="relative bg-stone-50 rounded-[10px] overflow-hidden shadow-sm order-1 md:order-1 min-h-[400px]">
             <img
               referrerPolicy="no-referrer"
-              src="https://images.unsplash.com/photo-1579159278991-88f572110c73?q=80&w=1935&auto=format&fit=crop"
+              src="public/about/Was-founded-by-Liv.webp"
               alt="The Space"
               className="w-full h-[110%] object-cover absolute top-0 left-0"
-              style={{ transform: `translateY(${(scrollY - 700) * 0.15}px)` }}
             />
           </div>
           <div className="fade-in order-2 md:order-2 flex flex-col justify-center">
@@ -166,17 +165,32 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className="order-2 md:order-2 relative">
-            <div className="h-full bg-stone-200 relative overflow-hidden rounded-[10px]">
+            <div
+              className="h-[520px] bg-stone-200 relative overflow-hidden rounded-[10px]"
+              style={{ transform: "translateZ(0)" }}
+            >
               <img
-                src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t51.82787-15/553742065_18428179612100116_1721518372852238092_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHPyKkuriUljae4jVxe9KIPh5Md1K0Mf8SHkx3UrQx_xMOq6tnBgVvN1Jxx3O9FTzSwSE_SZCOOU9DVEiT0Jy_p&_nc_ohc=a3D-ElNau1YQ7kNvwEBXrG5&_nc_oc=Adkmy3cFG8QwxvepInSSxZEO7oG_j-HOa8jbVI69RQH517LREBdRkHVndvBcfY23WkpytWujYjdh8NwF5q7L8Ks3&_nc_zt=23&_nc_ht=scontent.fsgn2-9.fna&_nc_gid=Wrga319Fp2zOAIwq7DQqpg&oh=00_Afo0AfplS0rQXxSLYYZrp6GlhdqsjAE9xB8gDvCqepaETg&oe=69642CB8"
+                src="/about/founder.webp"
                 alt="Olivia Founder"
-                className="w-full h-[110%] object-cover absolute top-0 left-0"
+                className="
+        w-full
+        h-[108%]
+        object-cover
+        absolute
+        top-[-4%]
+        left-0
+        will-change-transform
+      "
                 style={{
-                  transform: `translateY(${(scrollY - 1300) * 0.15}px)`,
+                  transform: `translateY(${Math.min(
+                    Math.max((scrollY - 1300) * 0.06, -20),
+                    20
+                  )}px)`,
                 }}
               />
             </div>
           </div>
+
         </div>
       </section>
 
