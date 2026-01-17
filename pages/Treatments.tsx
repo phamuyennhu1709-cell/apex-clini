@@ -740,7 +740,7 @@ export const FatDissolving: React.FC = () => (
     <TreatmentLayout 
     title="Fat"
     script="Dissolving"
-    introSectionReversed={false}
+    introSectionReversed={true}
     heroImage="/fat-dissolving/hero.webp"
     heroDescription="We all have areas that feel resistant, no matter how healthy our lifestyle is. It’s completely normal… the body naturally stores fat in certain places, and some areas simply don’t respond to diet or exercise alone.\n\nFat dissolving injections offer a non-surgical way to gently refine and contour these stubborn areas. The treatment works gradually, helping to smooth and rebalance the area for a more defined appearance, without surgery or significant downtime."
     introTitle={(
