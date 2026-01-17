@@ -189,6 +189,8 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
   const mainTitleClass = "text-5xl md:text-7xl font-serif text-stone-900 leading-[0.95]";
   const scriptTitleClass = `font-script text-6xl md:text-8xl inline-block ${scriptStyle}`;
   const bodyTextClass = "text-stone-600 font-light text-lg leading-relaxed";
+  const normalizedHeroDescription = heroDescription ? heroDescription.replace(/\r/g, '').replace(/\\n/g, '\n').replace(/\n\n/g, '\n\n') : '';
+  const normalizedIntroText = introText ? introText.replace(/\r/g, '').replace(/\\n/g, '\n').replace(/\n\n/g, '\n\n') : '';
 
   return (
     <div className="w-full">
@@ -211,7 +213,7 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
           </h1>
           <div className="max-w-2xl mx-auto">
              <div className="text-stone-900 font-light text-lg leading-relaxed tracking-wide space-y-6">
-               {heroDescription.split('\n\n').map((para, i) => (
+               {normalizedHeroDescription.split('\n\n').map((para, i) => (
                  <p key={i} className="mb-4 last:mb-0">{para}</p>
                ))}
              </div>
@@ -244,7 +246,7 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
                   {introTitle} {introScript && <span className={`${scriptTitleClass} ml-2`}>{introScript}</span>}
                 </h2>
                 <div className="space-y-6">
-                  {introText && introText.split('\n\n').map((para, i) => (
+                  {introText && normalizedIntroText.split('\n\n').map((para, i) => (
                     <p key={i} className={bodyTextClass}>{para}</p>
                   ))}
                 </div>
@@ -422,45 +424,7 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
         </section>
       )}
 
-      {/* What to Expect Section */}
-      <section className="py-[7.5rem] md:py-[10rem] bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
-            {/* Left/Right depending on expectSectionReversed */}
-            <div className={`order-1 ${expectSectionReversed ? 'lg:order-2' : 'lg:order-1'} text-left flex flex-col justify-center py-4`}>
-              <h2 className="text-5xl md:text-7xl font-serif text-stone-900 leading-tight mb-10">
-                What to <span className={`${scriptTitleClass} ml-4`}>Expect</span>
-              </h2>
-              <div className="space-y-6 text-stone-600 font-light text-lg leading-relaxed mb-12">
-                <p>
-                  Your appointment begins with a detailed consultation where we’ll discuss your goals, assess your facial structure, and decide on the most suitable approach for you. You’ll be guided through your treatment options, what to expect on the day, and how to care for your skin afterwards.
-                </p>
-                <p>
-                  Most treatments take around 30–45 minutes, with results often visible immediately or developing over the following days. Any mild after-effects typically settle quickly.
-                </p>
-                <p>
-                  The focus is always on subtle, well-balanced results - so you leave feeling refreshed, confident, and still very much yourself.
-                </p>
-              </div>
-              <div className="w-full md:w-auto flex justify-start">
-                 <Button variant="outline" to="/contact" className="w-full md:w-auto px-16 py-6 text-sm md:text-base">
-                   Book Consultation
-                 </Button>
-              </div>
-            </div>
-
-            {/* Right/Left depending on expectSectionReversed */}
-            <div className={`rounded-[10px] overflow-hidden shadow-2xl relative order-2 ${expectSectionReversed ? 'lg:order-1' : 'lg:order-2'} min-h-[400px]`}>
-              <img 
-                referrerPolicy='no-referrer'
-                src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop" 
-                alt="Clinic Consultation" 
-                className="w-full h-full object-cover absolute inset-0"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+ 
     </div>
   );
 };
