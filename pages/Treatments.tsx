@@ -129,6 +129,9 @@ interface TreatmentPageProps {
   introBgClass?: string;
   introSectionReversed?: boolean;
   expectSectionReversed?: boolean;
+  expectTitle?: string;
+  expectScript?: string;
+  expectBody?: string;
 }
 
 const GoldIcon = ({ children }: { children?: React.ReactNode }) => (
@@ -173,7 +176,10 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
   introImage,
   introBgClass = "bg-white",
   introSectionReversed = false,
-  expectSectionReversed = false
+  expectSectionReversed = false,
+  expectTitle = "What to",
+  expectScript = "Expect",
+  expectBody
 }) => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
   const [scrollY, setScrollY] = useState(0);
@@ -191,6 +197,14 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
   const bodyTextClass = "text-stone-600 font-light text-lg leading-relaxed";
   const normalizedHeroDescription = heroDescription ? heroDescription.replace(/\r/g, '').replace(/\\n/g, '\n').replace(/\n\n/g, '\n\n') : '';
   const normalizedIntroText = introText ? introText.replace(/\r/g, '').replace(/\\n/g, '\n').replace(/\n\n/g, '\n\n') : '';
+
+  const defaultExpectBody = `Your appointment begins with a detailed consultation where we’ll discuss your goals, assess your facial structure, and decide on the most suitable approach for you. You’ll be guided through your treatment options, what to expect on the day, and how to care for your skin afterwards.
+
+Most treatments take around 30–45 minutes, with results often visible immediately or developing over the following days. Any mild after-effects typically settle quickly.
+
+The focus is always on subtle, well-balanced results - so you leave feeling refreshed, confident, and still very much yourself.`;
+
+  const displayExpectBody = expectBody || defaultExpectBody;
 
   return (
     <div className="w-full">
@@ -424,7 +438,40 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
         </section>
       )}
 
- 
+
+      {/* Dynamic Expectation Section */}
+      <section className="py-[7.5rem] md:py-[10rem] bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
+            {/* Left/Right depending on expectSectionReversed */}
+            <div className={`order-1 ${expectSectionReversed ? 'lg:order-2' : 'lg:order-1'} text-left flex flex-col justify-center py-4`}>
+              <h2 className="text-5xl md:text-7xl font-serif text-stone-900 leading-tight mb-10">
+                {expectTitle} <span className={`${scriptTitleClass} ml-4`}>{expectScript}</span>
+              </h2>
+              <div className="space-y-6 text-stone-600 font-light text-lg leading-relaxed mb-12">
+                {displayExpectBody.split('\n').map((para, i) => (
+                  <p key={i} className="mb-4 last:mb-0">{para}</p>
+                ))}
+              </div>
+              <div className="w-full md:w-auto flex justify-start">
+                 <Button variant="outline" to="/contact" className="w-full md:w-auto px-16 py-6 text-sm md:text-base">
+                   Book Consultation
+                 </Button>
+              </div>
+            </div>
+
+            {/* Right/Left depending on expectSectionReversed */}
+            <div className={`rounded-[10px] overflow-hidden shadow-2xl relative order-2 ${expectSectionReversed ? 'lg:order-1' : 'lg:order-2'} min-h-[400px]`}>
+              <img 
+                src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop" 
+                alt="Clinic Consultation" 
+                className="w-full h-full object-cover absolute inset-0"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };
@@ -532,6 +579,11 @@ export const AntiWrinkles: React.FC = () => (
     title="Anti-Wrinkle"
     script="Injections"
     expectSectionReversed={true}
+    expectTitle="The"
+    expectScript="Results"
+    expectBody={`My approach is always conservative and considered. Treatments are tailored to your facial structure, movement, and goals to achieve results that look natural and well-balanced.
+You’ll still look like yourself, just more refreshed, rested, and at ease.
+A review appointment is arranged around two weeks after treatment to ensure everything has settled beautifully and feels right for you.`}
     heroImage="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop"
     heroDescription={`Do fine lines remain even when your face at rest? Or does facial tension leave you looking tired, tense, or less defined than you’d like? Anti-wrinkle injections offer a subtle way to soften lines, refine facial shape, and refresh your appearance , while keeping your expressions natural.
 
@@ -555,7 +607,7 @@ Treatment is quick and straightforward, usually taking 10–15 minutes, with no 
         icon: <Activity size={40} />
       },
       {
-        title: "Frown Lines (Glabella)",
+        title: "Frown Lines (Glavella)",
         body: "Reduce the appearance of “11” lines between the brows.",
         icon: <Target size={40} />
       },
