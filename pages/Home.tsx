@@ -35,32 +35,26 @@ const Home: React.FC = () => {
       title: 'Dermal Fillers', 
       price: 'From £250',
       desc: 'Dermal Fillers are advanced injectable treatments used to restore lost volume, enhance facial contours, and improve facial balance.', 
-      img: 'https://scontent.fsgn5-3.fna.fbcdn.net/v/t51.82787-15/587292115_18445243417100116_6097227774350340459_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7g3cVAvFNuIQ7kNvwFzUfbA&_nc_oc=Adnbqy9fQssvevLrrcSNf1udpkphtB-WwTRnEzpny1NYYtot3YmU7-ebbDSfY0TkcF8Y5dvVKEZ807kAW32KzB9v&_nc_zt=23&_nc_ht=scontent.fsgn5-3.fna&_nc_gid=PHSWjJuwwCAXAD6Az-NEyA&oh=00_Afpej21V2fut5cJBunSOGZV2jeusFOr8mBJt0A2WtpLqIQ&oe=69702918' 
+      img: './public/home/dermal-fillers.webp' 
     },
     { 
       title: 'Anti-Wrinkle', 
       price: 'From £180',
       desc: 'Gently relaxes targeted muscles using a purified protein, effectively softening fine lines while preventing deeper wrinkles from forming.', 
-      img: 'https://scontent.fsgn2-4.fna.fbcdn.net/v/t51.82787-15/586685056_18441267625100116_2673419781601899327_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDWSOJdiGq9mfHWNuDmRe9R84uHjrY3NJHzi4eOtjc0r9NQnOl7X6fWxCLlJYrT12ijHk9IiLpoRjqmO-eeRvX&_nc_ohc=-G1FS6OhZHYQ7kNvwHInAsN&_nc_oc=AdmrrJDctEXRVb_SYcIOFIusoLGxLxvNiwCX-p_yvbZqnp3OU9tlUuqXIyqmocuydUzvKQ-791mMiZzA2YTK0veX&_nc_zt=23&_nc_ht=scontent.fsgn2-4.fna&_nc_gid=3b3RngVd649ElubvNKT50Q&oh=00_Afobmsk1CCLNw7IXaIlf_pg4Q8ZR6HPzeyiB6HZbmIHpUg&oe=69640BDB' 
+      img: './public/home/anti-wrinkles.webp' 
     },
     { 
       title: 'Skincare', 
       price: 'From £50',
       desc: 'This advanced therapies help stimulate collagen and elastin, improve hydration, result in smoother, firmer, radiant skin over time.', 
-      img: 'https://scontent.fsgn2-6.fna.fbcdn.net/v/t51.82787-15/535950314_18422990863100116_3523678481904171611_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE4CfOBECBeuYJYoJo0k1xgepQnIvHmw396lCci8ebDf2KhBPKhyZb-mZt4-0cZ8ZRdVJ25mgR94NR2_m_P9smK&_nc_ohc=m75uJctCryoQ7kNvwHnEKfa&_nc_oc=AdmsdkzkJqhhuRqV0N3pLApa1wCe6W0-YPLmFLc3bMOfryvWKrNG-YyFB1RJIDD4k5Uj0SjsYPZ2PZDxVw80WDPx&_nc_zt=23&_nc_ht=scontent.fsgn2-6.fna&_nc_gid=Ggz5ueofDhmIvuWQcKUgcw&oh=00_AfoDjc3KsqLfPp2aeAFtMvzQguA8S7CU1_ka8op-r1PVAg&oe=696434C4' 
+      img: './public/home/skincare.webp' 
     },
     { 
       title: 'Fat Dissolving', 
       price: 'From £150',
       desc: 'Fat dissolving injections are a non-surgical treatment designed to target small, localised pockets of fat beneath the skin. ', 
-      img: 'https://scontent.fsgn2-8.fna.fbcdn.net/v/t51.75761-15/487774471_18402687823100116_517027302862515246_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF1l5LMV7e1jbnIQ40sLLI8Km4gfYDh_AoqbiB9gOH8ChdRmk1uGerigxoOVbaFLJXEGu9_wtX_qIGAJROWmfxA&_nc_ohc=srxfG1I4YVgQ7kNvwG-4Rs7&_nc_oc=AdlIJCCfXETOPJ67XslQQpB_6M0WZK707oz0SpEFb92gHp5u_MfrGy8Afe4GsGw0E5omDz6XY2DAF19M5&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=FtfN-iC2tb92vg95yLRtyw&oh=00_AfqHbbP5WDFOi5-7TURamTNMNPTfGixTR6TUlpmVfgx3pg&oe=69642A4F' 
-    },
-    { 
-      title: 'Ultimate Acne Buster', 
-      price: 'From £95',
-      desc: 'Combining our Pure peel with high frequency and LED light therapy to kill acne causing bacteria and diminish breakouts.', 
-      img: 'https://scontent.fsgn2-8.fna.fbcdn.net/v/t51.75761-15/469301779_18384554695100116_707537089760570063_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeG1ULlYFCIBBdZmtlRUR9BlAMiJdQ7ybJ0AyIl1DvJsnTw3Xa1Hwbn8x0m7jUpRb_b8w_vV67-CCOXaGd5AzYSo&_nc_ohc=cp8TqUddL0YQ7kNvwFOmsx8&_nc_oc=Adm1Xn78ozvLy2Fvuk0-xlJx2dZrwX6RkljBoC4LO9t67j38pt6U1e4QQ_99M42lHyTRaUStKHbLX07q6fpgF19M5&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=mP1BNIxLwEuqD-caEP9zOg&oh=00_AfrDmqw4UrTbmeA9SiKseKzC7M0SgxFVLG5jYUyt1qpYHg&oe=6964385B' 
-    },
+      img: './public/home/fat-dissolving.webp' 
+    }
   ];
 
   const testimonials = [
