@@ -5,6 +5,7 @@ import Seo from "../components/Seo";
 
 const About: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [heroSize, setHeroSize] = useState<{ w: number; h: number } | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +13,14 @@ const About: React.FC = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  React.useEffect(() => {
+    const img = new window.Image();
+    img.src = '/about/about.webp';
+    img.onload = () => {
+      setHeroSize({ w: img.naturalWidth, h: img.naturalHeight });
+    };
   }, []);
 
   const specialisms = [
@@ -52,25 +61,43 @@ const About: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative h-screen min-h-[600px] flex items-end bg-stone-50 overflow-hidden pb-16 md:pb-24">
-        <div className="absolute inset-0 z-0">
-          <img
-            referrerPolicy="no-referrer"
-            src="/about/about.webp"
-            alt="About Apex Clinic"
-            className="w-full h-full object-cover"
-            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-          />
+        <div className="absolute inset-0 z-0 flex items-center justify-center">
+          {heroSize ? (
+            <img
+              referrerPolicy="no-referrer"
+              src="/about/about.webp"
+              alt="About Apex Clinic"
+              style={{
+                width: `${heroSize.w}px`,
+                height: 'auto',
+                maxWidth: 'none',
+                display: 'block'
+              }}
+            />
+          ) : (
+            <img
+              referrerPolicy="no-referrer"
+              src="/about/about.webp"
+              alt="About Apex Clinic"
+              className="max-w-none block"
+              style={{ width: 'auto', height: 'auto', maxWidth: 'none' }}
+            />
+          )}
         </div>
 
-        <div className="relative z-10 text-left max-w-7xl mx-auto px-6 fade-in w-full">
-          <h1 className={heroTitleClass}>
-            Apex Clinic <br className="hidden md:block" />
-            <span
-              className={`font-script text-6xl md:text-8xl block -mt-2 ${scriptStyle}`}
-            >
-              Discover the Story of Apex
-            </span>
-          </h1>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 fade-in w-full">
+          <div className="flex items-center justify-between">
+            <div className="text-left w-2/3 pr-12">
+              <h1 className={heroTitleClass}>
+                Apex Clinic <br className="hidden md:block" />
+                <span
+                  className={`font-script text-6xl md:text-8xl block -mt-2 text-white ${scriptStyle}`}
+                >
+                  Discover the Story of Apex
+                </span>
+              </h1>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -108,7 +135,7 @@ const About: React.FC = () => {
               </p>
               <p>
                 At Apex, medical integrity sits at the core of everything we do.
-                Liv’s nursing background ensures that every treatment is
+                Liv's nursing background ensures that every treatment is
                 approached with precision, safety, and a deep understanding of
                 facial anatomy. This clinical foundation, paired with an
                 aesthetic-led approach, allows for results that are refined,
@@ -173,8 +200,6 @@ const About: React.FC = () => {
               />
             </div>
           </div>
-
-
         </div>
       </section>
 
@@ -218,7 +243,7 @@ const About: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             referrerPolicy="no-referrer"
-            src="/about/about.webp"
+            src="/about/hero.webp"
             alt="Clinic Interior"
             className="w-full h-full object-cover"
           />
@@ -235,7 +260,7 @@ const About: React.FC = () => {
           </h2>
           <p className={`${bodyTextClass} mb-12`}>
             Apex Clinic is a judgement-free, professional environment where
-            clients feel listened to, educated, and cared for. Whether you’re
+            clients feel listened to, educated, and cared for. Whether you're
             new to aesthetics or experienced with treatments, every consultation
             is thorough, honest, and client-led. We are proud to offer results
             that are natural, safe, and confidence-boosting - with care you can

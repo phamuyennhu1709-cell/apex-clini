@@ -764,43 +764,7 @@ export const FatDissolving: React.FC = () => (
     enhancementsBgClass="bg-white"
     enhancementItemClass="border-stone-900 hover:bg-stone-50"
     useGoldIcons={false}
-    enhancements={[
-      {
-        title: "Understanding You First",
-        body: "Every treatment begins with a detailed consultation. We’ll talk through your goals, assess the area, and decide together what approach will work best for you. There’s no pressure - just honest advice and a plan that feels right.",
-        icon: <Target size={40} />
-      },
-      {
-        title: "Safety You Can Trust",
-        body: "With a medical background, safety is always my priority. I use clinically proven products and evidence-based techniques to ensure treatments are delivered responsibly and professionally.",
-        icon: <ShieldCheck size={40} />
-      },
-      {
-        title: "Natural, Considered Results",
-        body: "Treatments are carried out with care and precision, focusing on subtle improvements rather than dramatic change. The aim is for results to look natural and well balanced - so you feel confident, not altered.",
-        icon: <Sparkles size={40} />
-      }
-    ]}
-    accordionSectionTitle={(
-      <>
-        Body <br /> 
-        <span className="font-script text-[#D9A13B] text-6xl md:text-8xl block mt-2">Sculpting Expert</span>
-      </>
-    )}
-    accordionItems={[
-      {
-        title: "Submental (Double Chin)",
-        body: "Our most popular fat dissolving treatment. By dissolving the small pocket of fat under the chin, we create a much more defined and youthful angle between the neck and the face."
-      },
-      {
-        title: "Lower Abdomen",
-        body: "Ideal for the small 'pooch' that often remains regardless of fitness levels. This treatment helps smooth the transition across the stomach for a flatter appearance in clothing."
-      },
-      {
-        title: "Inner Thigh & Arms",
-        body: "Address areas of skin rubbing or 'bingo wings' with targeted injections. These treatments help to firm up the silhouette by reducing the volume of fat in these challenging zones."
-      }
-    ]}
+    
     expectTitle="The"
     expectScript="Results"
     expectBody={`Changes appear gradually over the weeks following treatment as the body naturally clears the treated fat cells. The result is a smoother, more refined contour that looks natural and settles beautifully.

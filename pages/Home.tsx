@@ -33,25 +33,21 @@ const Home: React.FC = () => {
   const services = [
     { 
       title: 'Dermal Fillers', 
-      price: 'From £250',
       desc: 'Dermal Fillers are advanced injectable treatments used to restore lost volume, enhance facial contours, and improve facial balance.', 
       img: '/home/dermal-fillers.webp' 
     },
     { 
       title: 'Anti-Wrinkle', 
-      price: 'From £180',
       desc: 'Gently relaxes targeted muscles using a purified protein, effectively softening fine lines while preventing deeper wrinkles from forming.', 
       img: '/home/anti-wrinkles.webp' 
     },
     { 
       title: 'Skincare', 
-      price: 'From £50',
       desc: 'This advanced therapies help stimulate collagen and elastin, improve hydration, result in smoother, firmer, radiant skin over time.', 
       img: '/home/skincare.webp' 
     },
     { 
       title: 'Fat Dissolving', 
-      price: 'From £150',
       desc: 'Fat dissolving injections are a non-surgical treatment designed to target small, localised pockets of fat beneath the skin. ', 
       img: '/home/fat-dissolving.webp' 
     }
@@ -155,7 +151,6 @@ const Home: React.FC = () => {
                      </div>
                      <div className="flex justify-between items-baseline mb-4">
                         <h3 className="text-sm font-bold uppercase tracking-widest text-stone-900">{service.title}</h3>
-                        <span className="text-stone-900 font-bold text-sm">{service.price}</span>
                      </div>
                      <p className="text-stone-600 font-light text-base leading-relaxed mb-8 italic flex-grow">{service.desc}</p>
                      <div className="mt-auto">
