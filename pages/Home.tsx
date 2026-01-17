@@ -7,6 +7,15 @@ import { Link } from 'react-router-dom';
 const Home: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -100,6 +109,7 @@ const Home: React.FC = () => {
             src="https://scontent.fsgn5-14.fna.fbcdn.net/v/t39.30808-6/615402102_1802105790503463_1203018519109327570_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=6Y7NuUIWfeIQ7kNvwEqV_tV&_nc_oc=Adk4aVFL9ObHaM-hv8vs2uDSq6XM4u-xIbfOTvB09LZVuMYpVmkn-eAlvQRHNSi6NRXN4o0GG1OYp82zCSbd-1FZ&_nc_zt=23&_nc_ht=scontent.fsgn5-14.fna&_nc_gid=1yUVKu-lr87fRxgg0L3iIA&oh=00_Afp0B6PT6WJlkfcZGG6TW283WC3c2KiAuDypLgkmG8nBZA&oe=697043F5" 
             alt="Luxury Aesthetics Background"
             className="w-full h-full object-cover opacity-100 brightness-[1]"
+            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           />
     
         </div>
@@ -141,7 +151,7 @@ const Home: React.FC = () => {
                {services.map((service, idx) => (
                   <div key={idx} className="min-w-[85vw] md:min-w-[350px] snap-center flex flex-col h-full">
                      <div className="overflow-hidden rounded-[10px] mb-8 relative aspect-[3/4] shadow-sm">
-                        <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                        <img referrerPolicy='no-referrer' src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
                      </div>
                      <div className="flex justify-between items-baseline mb-4">
                         <h3 className="text-sm font-bold uppercase tracking-widest text-stone-900">{service.title}</h3>
@@ -257,57 +267,17 @@ Every treatment is tailored to your individual features and goals, with a strong
       </section>
 
       {/* Google Reviews Section - pb set to 0 to allow Footer padding to take over spacing */}
-      <section className="pt-[3.75rem] md:pt-[7.5rem] pb-0 bg-white overflow-hidden">
+      <section className="pt-[1.5rem] md:pt-[3rem] pb-16 md:pb-10 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
            <h2 className="text-5xl md:text-7xl font-serif text-stone-900 mb-2">
             See what all the <br/>
             <span className={`font-script text-6xl md:text-8xl inline-block ${scriptStyle}`}>talk is about!</span>
            </h2>
-          <div className="flex items-center justify-center gap-2 mt-4">
-             <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
-             </div>
-             <span className="text-stone-900 font-bold text-sm">4.9 / 5.0</span>
-             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-4 h-4 ml-2" />
-          </div>
         </div>
 
-        {/* Marquee Container */}
-        <div className="relative flex overflow-x-hidden group pb-10">
-          <div className="animate-marquee flex gap-8 py-4 whitespace-nowrap group-hover:pause">
-            {[...testimonials, ...testimonials].map((review, i) => (
-              <div key={i} className="inline-block w-[320px] bg-white rounded-[10px] shadow-sm border border-stone-100 p-8 hover:shadow-md transition-shadow">
-                <div className="flex items-center justify-between mb-4">
-                   <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-400 font-serif overflow-hidden">
-                         <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${review.name}`} alt={review.name} className="w-full h-full object-cover" />
-                      </div>
-                      <div>
-                         <p className="text-sm font-bold text-stone-900">{review.name}</p>
-                         <p className="text-[10px] text-stone-400 uppercase tracking-wider">{review.date}</p>
-                      </div>
-                   </div>
-                   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-4 h-4" />
-                </div>
-                <div className="flex text-amber-400 mb-3">
-                   {[...Array(review.rating)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
-                </div>
-                <p className="text-stone-600 font-light text-base leading-relaxed italic whitespace-normal line-clamp-4">
-                   "{review.text}"
-                </p>
-                <div className="mt-6 pt-4 border-t border-stone-50 flex justify-end">
-                   <a 
-                    href="https://www.google.com/maps" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-[10px] font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors"
-                   >
-                    View on Google
-                   </a>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Elfsight Google Reviews Widget */}
+        <div className="elfsight-wrapper pb-2" style={{ overflow: 'hidden' }}>
+          <div className="elfsight-app-92299baf-4b11-4be0-afde-b3349fdb3393" data-elfsight-app-lazy></div>
         </div>
       </section>
     </div>

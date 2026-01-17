@@ -49,6 +49,7 @@ const ComparisonSlider: React.FC<ComparisonSliderProps> = ({ beforeImage, afterI
     >
       {/* After Image (Background) */}
       <img 
+        referrerPolicy='no-referrer'
         src={afterImage} 
         alt="" 
         className="absolute inset-0 w-full h-full object-cover"
@@ -60,6 +61,7 @@ const ComparisonSlider: React.FC<ComparisonSliderProps> = ({ beforeImage, afterI
         style={{ width: `${sliderPosition}%` }}
       >
         <img 
+          referrerPolicy='no-referrer'
           src={beforeImage} 
           alt="" 
           className="absolute inset-0 w-full h-full object-cover"
@@ -176,6 +178,15 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
   expectSectionReversed = false
 }) => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const scriptStyle = "text-[#D9A13B] leading-none";
   const mainTitleClass = "text-5xl md:text-7xl font-serif text-stone-900 leading-[0.95]";
   const scriptTitleClass = `font-script text-6xl md:text-8xl inline-block ${scriptStyle}`;
@@ -187,9 +198,11 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
       <section className="relative h-screen min-h-[700px] flex items-center justify-center bg-stone-50 overflow-hidden px-6">
         <div className="absolute inset-0 z-0">
           <img 
+            referrerPolicy='no-referrer'
             src={heroImage} 
             alt={title}
             className="w-full h-full object-cover"
+            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           />
         </div>
         
@@ -213,6 +226,7 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
         <div className="relative z-30 -mt-[15vh] md:-mt-[20vh] px-6">
           <div className="max-w-6xl mx-auto aspect-video rounded-[10px] overflow-hidden shadow-2xl bg-stone-100">
             <img 
+              referrerPolicy='no-referrer'
               src={overlappingImage} 
               alt="Treatment Showcase" 
               className="w-full h-full object-cover"
@@ -238,7 +252,7 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
                 </div>
               </div>
               <div className={`aspect-[4/5] rounded-[10px] overflow-hidden shadow-2xl order-2 ${introSectionReversed ? 'lg:order-1' : 'lg:order-2'}`}>
-                <img src={introImage} alt="Treatment Process" className="w-full h-full object-cover" />
+                <img referrerPolicy='no-referrer' src={introImage} alt="Treatment Process" className="w-full h-full object-cover" />
               </div>
             </div>
           ) : (
@@ -397,7 +411,7 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
                         </div>
                         {item.image && (
                           <div className="aspect-[2/3] rounded-[10px] overflow-hidden shadow-2xl">
-                            <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                            <img referrerPolicy='no-referrer' src={item.image} alt={item.title} className="w-full h-full object-cover" />
                           </div>
                         )}
                       </div>
@@ -440,6 +454,7 @@ const TreatmentLayout: React.FC<TreatmentPageProps> = ({
             {/* Right/Left depending on expectSectionReversed */}
             <div className={`rounded-[10px] overflow-hidden shadow-2xl relative order-2 ${expectSectionReversed ? 'lg:order-1' : 'lg:order-2'} min-h-[400px]`}>
               <img 
+                referrerPolicy='no-referrer'
                 src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop" 
                 alt="Clinic Consultation" 
                 className="w-full h-full object-cover absolute inset-0"
