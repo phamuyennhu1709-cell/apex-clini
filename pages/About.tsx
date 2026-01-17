@@ -80,7 +80,7 @@ const About: React.FC = () => {
           <div className="relative bg-stone-50 rounded-[10px] overflow-hidden shadow-sm order-1 md:order-1 min-h-[400px]">
             <img
               referrerPolicy="no-referrer"
-              src="public/about/Was-founded-by-Liv.webp"
+              src="/about/Was-founded-by-Liv.webp"
               alt="The Space"
               className="w-full h-[110%] object-cover absolute top-0 left-0"
             />

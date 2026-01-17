@@ -35,25 +35,25 @@ const Home: React.FC = () => {
       title: 'Dermal Fillers', 
       price: 'From £250',
       desc: 'Dermal Fillers are advanced injectable treatments used to restore lost volume, enhance facial contours, and improve facial balance.', 
-      img: './public/home/dermal-fillers.webp' 
+      img: '/home/dermal-fillers.webp' 
     },
     { 
       title: 'Anti-Wrinkle', 
       price: 'From £180',
       desc: 'Gently relaxes targeted muscles using a purified protein, effectively softening fine lines while preventing deeper wrinkles from forming.', 
-      img: '/public/home/anti-wrinkles.webp' 
+      img: '/home/anti-wrinkles.webp' 
     },
     { 
       title: 'Skincare', 
       price: 'From £50',
       desc: 'This advanced therapies help stimulate collagen and elastin, improve hydration, result in smoother, firmer, radiant skin over time.', 
-      img: '/public/home/skincare.webp' 
+      img: '/home/skincare.webp' 
     },
     { 
       title: 'Fat Dissolving', 
       price: 'From £150',
       desc: 'Fat dissolving injections are a non-surgical treatment designed to target small, localised pockets of fat beneath the skin. ', 
-      img: '/public/home/fat-dissolving.webp' 
+      img: '/home/fat-dissolving.webp' 
     }
   ];
 
